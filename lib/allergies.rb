@@ -1,4 +1,5 @@
 def allergies(score)
+  array = []
   allergen = Hash.new()
   allergen.store("eggs", 1)
   allergen.store("peanuts", 2)
@@ -9,23 +10,38 @@ def allergies(score)
   allergen.store("pollen", 64)
   allergen.store("cats", 128)
 
-  if score == 1
-    allergen.key(1)
+  until (score == 0)
+    if score >= 128
+      score = score - 128
+      array.push(allergen.key(128))
+    elsif score >=64 
+      score = score - 64 
+      array.push(allergen.key(64))
+    elsif score >= 32 
+      score = score - 32
+      array.push(allergen.key(32))
+    elsif score >= 16
+      score = score - 16
+      array.push(allergen.key(16))
+    elsif score >= 8 
+      score = score - 8
+      array.push(allergen.key(8))
+    elsif score >= 4
+      score = score - 4
+      array.push(allergen.key(4))
+    elsif score >= 2
+      score = score - 2
+      array.push(allergen.key(2))
+    elsif score >= 1
+      score = score - 1
+      array.push(allergen.key(1))
+    end
   end
+  return array
 end
 
-# h = { "n" => 100, "m" => 100, "y" => 300, "d" => 200, "a" => 0 }
-# h.invert   #=> {0=>"a", 100=>"m", 200=>"d", 300=>"y"}
-
-
-# allergen     score
-# eggs         1
-# peanuts      2
-# shellfish    4
-# strawberries 8
-# tomatoes     16
-# chocolate    32
-# pollen       64
-# cats         128
-
-#invert() # returns a new hash using the values as keys, and the keys as values
+# co-authored-by: Andrew Giang <giang184@gmail.com>
+# Co-authored-by: Arthur Lee <meleearthur@gmail.com>
+# Co-authored-by: Araceli Valdovinos <valdovinosaraceli50@gmail.com>
+# co-authored-by: Kristen Hopper <hopperdavis@gmail.com>
+# co-authored-by: Adrian Camacho <adriancamacho18@gmail.com>"
